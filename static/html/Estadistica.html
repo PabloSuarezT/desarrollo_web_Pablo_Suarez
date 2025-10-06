@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <title>Estadistica</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Listado.html">Listado de Adopción</a></li>
+                <li><a href="Adopcion.html">Formulario de Adopción</a></li>
+                <li><a href="Estadistica.html">Estadística</a></li>
+            </ul> 
+        </nav>
+
+        <h1>Estadísticas del Sistema</h1>
+        <p>A continuación se muestran los datos de los avisos de adopción.</p>
+
+        <div class="grafico-container">
+            <h2>Avisos de Adopción por Día</h2>
+            <canvas id="graficoLinea"></canvas>
+        </div>
+
+        <div class="grafico-container">
+            <h2>Total de Avisos por Tipo de Mascota</h2>
+            <canvas id="graficoTorta"></canvas>
+        </div>
+        
+        <div class="grafico-container">
+            <h2>Avisos por Tipo y Mes</h2>
+            <canvas id="graficoBarras"></canvas>
+        </div>
+
+        <div class="volver-portada-container">
+            <a href="index.html" class="btn-volver-portada">Volver a la portada</a>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="../js/Graficos.js"></script>
+    </body>
+</html>
