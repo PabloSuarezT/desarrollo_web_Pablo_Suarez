@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="{{ url_for('index') }}" {% if active_page == 'index' %}class="active"{% endif %}>Inicio</a>
+            <a href="{{ url_for('listado') }}" {% if active_page == 'listado' %}class="active"{% endif %}>Listado</a>
+            <a href="{{ url_for('adopcion') }}" {% if active_page == 'adopcion' %}class="active"{% endif %}>Adoptar</a>
+            <a href="{{ url_for('estadistica') }}" {% if active_page == 'estadistica' %}class="active"{% endif %}>Estadísticas</a>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    {% block scripts %}{% endblock %}
+    
+</body>
+</html>

@@ -4,26 +4,40 @@
     <head>
         <title>Agregar aviso de adopción</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     <body>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Listado.html">Listado de Adopción</a></li>
-                <li><a href="Adopcion.html">Formulario de Adopción</a></li>
-                <li><a href="Estadistica.html">Estadística</a></li>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('main.listado') }}">Listado de Adopción</a></li>
+                <li><a href="{{ url_for('main.adopcion') }}">Formulario de Adopción</a></li>
+                <li><a href="{{ url_for('main.estadistica') }}">Estadística</a></li>
             </ul> 
         </nav>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
         <h1>Completa el formulario de adopción.</h1>
-        <form action="#" method="post">
+        <form action="{{ url_for('main.adopcion') }}" method="post" enctype="multipart/form-data">
             <h2> Lugar de entrega</h2>
 
             <fieldset>
                 <div>
                     <label for="region">Region</label>
-                    <select id="region" name="region" required+>
+                    <select id="region" name="region_name" required>
                         <option value="" disabled selected>Seleccione una region</option>
+                        {% for region in regiones %}
+                            <option value="{{ region.id }}">{{ region.nombre }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <br>
@@ -31,7 +45,7 @@
                     <label for="comuna">Comuna</label>
                     <select id="comuna" name="comuna" required>
                         <option value="" disabled selected>Seleccione una comuna</option>
-                    </select>
+                        </select>
                 </div>
                 <br>
                 <div>
@@ -60,24 +74,23 @@
                 </div>
                 <br>
                 <div>
-                    <label for="contacto-por">Contacta por</label>
-                    <select id="contacto-por" name="contacto-por[]" multiple size="6">
-                        <option value="">-- Seleccione una opción --</option>
-                        <option value="Whatsapp">Whatsapp</option>
+                    <label for="contacto-por-select">Contacta por</label>
+                    <select id="contacto-por-select" name="contacto-por[]" multiple size="6">
+                        <option value="whatsapp">Whatsapp</option>
                         <option value="telegram">telegram</option>
                         <option value="X">X</option>
                         <option value="instagram">instagram</option>
-                        <option value="tiktock">tiktock</option>
+                        <option value="tiktok">tiktok</option>
                         <option value="otra">Otra</option>
                     </select>
-                    <p>Use la tecla (ctrl) para seleccionar más de un contacto (o cmd en Mac)</p>
+                    <p>Use la tecla (Ctrl/Cmd) para seleccionar más de un contacto</p>
                 </div>
                 <br>
-                <div id="otro-contacto-contenedor" style="display: none;">
-                    <label for="otro-contacto">ID de contacto/URL: </label>
-                    <input type="text" id="otro-contacto" name="otro-contacto" minlength="4" maxlength="50" placeholder="Escribe aqui la URL o ID">
-                </div>
-            </fieldset>
+
+                <div id="otro-contacto-contenedor" style="margin-top: 15px;">
+                    </div>
+                
+                </fieldset>
 
             <h2>¿Qué mascota ofrece en adopción?</h2>
 
@@ -105,8 +118,8 @@
                     <label for="unidad-edad">Unidad de la edad</label>
                     <select id="unidad-edad" name="unidad-edad" required>
                         <option value="" disabled selected>-- Seleccione una opción --</option>
-                        <option value="meses">meses</option>
-                        <option value="años">años</option>
+                        <option value="a">años</option>
+                        <option value="m">meses</option>
                     </select>
                 </div>
                 <br>
@@ -122,8 +135,9 @@
                 <br>
                 <div id="fotos-container">
                     <label for="foto">Foto(s) de la mascota:</label>
-                    <input type="file" id="foto" name="foto[]" required>
+                    <input type="file" id="foto" name="foto[]" required multiple>
                     <button type="button" id="agregar-foto">Agregar otra foto</button>
+                    <p class="nota">Nota: Puede seleccionar múltiples fotos a la vez.</p>
                 </div>
             </fieldset>
 
@@ -132,6 +146,6 @@
             </div>
 
         </form>
-        <script src="../js/region_comuna.js"></script>
+        <script src="{{ url_for('static', filename='js/region_comuna.js') }}"></script>
     </body>
 </html>

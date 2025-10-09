@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <title>PetAdoption</title>
+        <meta charset="UTF-8">
+        <!-- Uso de url_for para el archivo estático -->
+        <link rel="stylesheet" href="{{ url_for('main.static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <!-- Uso de url_for para la navegación -->
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('main.listado') }}">Listado de Adopción</a></li>
+                <li><a href="{{ url_for('main.adopcion') }}">Formulario de Adopción</a></li>
+                <li><a href="{{ url_for('main.estadistica') }}">Estadística</a></li>
+            </ul> 
+        </nav>
+        
+        <!-- Mensajes Flash (éxito o error) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <h1>Bienvenido a PetAdoption.</h1>
+        <p>Aquí puedes ver a las mascotas que esperan por un hogar (últimos 5 avisos).</p>
+        
+        <div id="lista-avisos">
+            <table id="listado-principal">
+                <thead>
+                    <tr>
+                        <th>Fecha de Publicación</th>
+                        <th>Comuna</th>
+                        <th>Sector</th>
+                        <th>Cantidad/Tipo/Edad</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <!-- Inicio del bucle Jinja para avisos -->
+                    {% for aviso in avisos %}
+                    <!-- Agregamos data-id y onclick para ver el detalle -->
+                    <tr data-id="{{ aviso.id }}" class="clickable-row" onclick="verDetalle({{ aviso.id | int }})">
+                        <td>{{ aviso.fecha_ingreso.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td>{{ aviso.comuna_nombre }}</td> 
+                        <td>{{ aviso.sector if aviso.sector else 'N/A' }}</td>
+                        <td>
+                            {{ aviso.cantidad }}/
+                            {{ aviso.tipo | capitalize }}/
+                            {{ aviso.edad }} 
+                            {% if aviso.unidad_medida == 'a' %}años{% else %}meses{% endif %}
+                        </td>
+                        <td>
+                            <!-- CORRECCIÓN CLAVE: Usamos aviso.foto_principal que debería contener la URL completa -->
+                            <img class="pet-image-list" 
+                                 src="{{ aviso.foto_principal }}" 
+                                 alt="Foto de {{ aviso.tipo | capitalize }}">
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5">No hay avisos de adopción disponibles aún. ¡Sé el primero en publicar!</td>
+                    </tr>
+                    {% endfor %}
+                    <!-- Fin del bucle Jinja -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="detalle-aviso" style="display: none;">
+        </div>
+        <!-- Asegúrate de usar 'main.static' para la ruta del Blueprint -->
+        <script src="{{ url_for('main.static', filename='js/Listado.js') }}"></script>
+        <script>
+            // Asegúrate de que esta función esté definida en Listado.js
+            function verDetalle(id) {
+                console.log("Ver detalle de aviso ID:", id);
+                // Lógica para cargar el detalle (como AJAX) e inyectarlo en #detalle-aviso
+                document.getElementById('detalle-aviso').style.display = 'block';
+            }
+
+            // Simple funcionalidad para cerrar el detalle (puede ser útil si Listado.js no lo maneja)
+            document.getElementById('detalle-aviso')?.addEventListener('click', function(e) {
+                if (e.target.id === 'cerrar-detalle') {
+                    this.style.display = 'none';
+                }
+            });
+        </script>
+
+    </body>
+</html>

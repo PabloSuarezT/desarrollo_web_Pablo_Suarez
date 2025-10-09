@@ -1,9 +1,12 @@
--- Active: 1759248145905@@127.0.0.1@3306@mysql
+-- Active: 1759264878748@@127.0.0.1@3306@tarea2
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- Permisos:
+GRANT ALL ON tarea2.* TO cc5002@localhost;
 
 -- -----------------------------------------------------
 -- Schema tarea2

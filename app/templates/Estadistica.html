@@ -4,17 +4,17 @@
     <head>
         <title>Estadistica</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
 
 
     <body>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Listado.html">Listado de Adopción</a></li>
-                <li><a href="Adopcion.html">Formulario de Adopción</a></li>
-                <li><a href="Estadistica.html">Estadística</a></li>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('main.listado') }}">Listado de Adopción</a></li>
+                <li><a href="{{ url_for('main.adopcion') }}">Formulario de Adopción</a></li>
+                <li><a href="{{ url_for('main.estadistica') }}">Estadística</a></li>
             </ul> 
         </nav>
 
@@ -37,10 +37,10 @@
         </div>
 
         <div class="volver-portada-container">
-            <a href="index.html" class="btn-volver-portada">Volver a la portada</a>
+            <a href="{{ url_for('main.index') }}" class="btn-volver-portada">Volver a la portada</a>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="../js/Graficos.js"></script>
+        <script src="{{ url_for('static', filename='js/Graficos.js') }}"></script>
     </body>
 </html>

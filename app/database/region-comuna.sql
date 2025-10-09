@@ -1,4 +1,4 @@
--- Active: 1759248145905@@127.0.0.1@3306@tarea2
+-- Active: 1759264878748@@localhost@3306@tarea2
 
 INSERT INTO region (id, nombre) VALUES (1,'Región de Tarapacá');
 INSERT INTO region (id, nombre) VALUES (2,'Región de Antofagasta');
@@ -317,7 +317,7 @@ INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130216, 'Independencia');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130217, 'Huechuraba');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130218, 'Recoleta');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130219, 'Vitacura');
-INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130220, 'Lo Barrenechea');
+INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130220, 'Lo Barenechea');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130221, 'Macul');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130222, 'Peñalolén');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130223, 'San Joaquín');

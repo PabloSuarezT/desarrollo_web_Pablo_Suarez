@@ -83,6 +83,8 @@ p {
     padding: 12px 15px; 
     text-align: left;
     border-bottom: 1px solid #ddd;
+    /* CENTRAR CONTENIDO EN CELDAS DE TABLA PARA ESTÉTICA */
+    vertical-align: middle; 
 }
 
 #listado-principal tbody tr {
@@ -110,6 +112,17 @@ p {
     object-fit: cover;
     border-radius: 5px;
 }
+
+/* CORRECCIÓN CLAVE: Nueva definición para la clase usada en Listado.html */
+.pet-image-list {
+    width: 60px; /* Tamaño más pequeño para la fila de la tabla */
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block; /* Asegura que la imagen sea un bloque independiente */
+}
+/* FIN DE CORRECCIÓN CLAVE */
+
 
 #detalle-aviso {
     width: 80%;
@@ -293,4 +306,23 @@ form button[type="submit"]:hover {
     background-color: #2980b9;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6; /* Gris claro de fondo */
+}
+.container-main {
+    max-width: 900px;
+}
+.form-section {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+/* Estilo para el campo de contacto (listbox/select múltiple) */
+#contacto-por-select option:checked {
+    background-color: #3b82f6; /* Color azul Tailwind-500 */
+    color: white;
 }
