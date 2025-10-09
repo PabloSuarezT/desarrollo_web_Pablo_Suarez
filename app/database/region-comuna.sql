@@ -317,7 +317,7 @@ INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130216, 'Independencia');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130217, 'Huechuraba');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130218, 'Recoleta');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130219, 'Vitacura');
-INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130220, 'Lo Barenechea');
+INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130220, 'Lo Barnechea');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130221, 'Macul');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130222, 'Peñalolén');
 INSERT INTO comuna (region_id, id, nombre) VALUES (13, 130223, 'San Joaquín');
