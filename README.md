@@ -13,5 +13,6 @@ Decidí separa los archivos JS en tres:
 ### Archivo CSS.
 Todo el CSS pertienente a la página web se encuentra en un solo arcivo llamado style.
 
-### Uso de IA.
-Durante el proyecto se usó Gemini para obtener funciones necesarias para poder hacer la parte interactiva de la página web (JS), es decir, le pedí las funciones y formas de llamar a parametros para poder aplicar la lógica de validación e interacción conforme se vió en cátedra y auxliares. Tambien se usó la IA para toda la documentación del proyecto.
+##Tarea 2
+
+Para esta tarea 2 se realizó toda la conección entre frontend y Backend, usando MySQL y bases de datos. La mayor dificultad de esta tarea fue el backend en si, pues se me hizo complicado de entender e implementar. todos los "comandos" y formas de declarar las rutas para hacer lo que uno necesite. El uso de jinja fué tambien un desafío por lo extraño que me resultó, además de todo el proceso de carga de los avisos y la información previa. En resumen, el backend me devoró.
