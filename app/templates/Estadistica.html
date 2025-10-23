@@ -2,9 +2,22 @@
 <html lang="es">
 
     <head>
-        <title>Estadistica</title>
+        <title>Estadísticas</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('main.static', filename='css/style.css') }}">
+        
+        <!-- ======================================================= -->
+        <!-- CAMBIO CRÍTICO: Usar Highcharts y sus módulos necesarios -->
+        <!-- ======================================================= -->
+        
+        <!-- Core Highcharts library -->
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <!-- Módulo para Gráfico de Torta (Pie) -->
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <!-- Módulo para accesibilidad (opcional, pero buena práctica) -->
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        
     </head>
 
 
@@ -21,26 +34,32 @@
         <h1>Estadísticas del Sistema</h1>
         <p>A continuación se muestran los datos de los avisos de adopción.</p>
 
+        <!-- 1. GRÁFICO DE LÍNEAS -->
         <div class="grafico-container">
-            <h2>Avisos de Adopción por Día</h2>
-            <canvas id="graficoLinea"></canvas>
+            <h2>1. Cantidad de Avisos de Adopción por Día</h2>
+            <!-- Highcharts necesita un DIV, no un CANVAS, y un ID único -->
+            <div id="chart-avisos-por-dia" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         </div>
 
+        <!-- 2. GRÁFICO DE TORTA -->
         <div class="grafico-container">
-            <h2>Total de Avisos por Tipo de Mascota</h2>
-            <canvas id="graficoTorta"></canvas>
+            <h2>2. Total de Avisos por Tipo de Mascota</h2>
+            <!-- Highcharts necesita un DIV, no un CANVAS, y un ID único -->
+            <div id="chart-total-por-tipo" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         </div>
         
+        <!-- 3. GRÁFICO DE BARRAS -->
         <div class="grafico-container">
-            <h2>Avisos por Tipo y Mes</h2>
-            <canvas id="graficoBarras"></canvas>
+            <h2>3. Avisos Mensuales por Tipo de Mascota</h2>
+            <!-- Highcharts necesita un DIV, no un CANVAS, y un ID único -->
+            <div id="chart-mensual-por-tipo" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         </div>
 
         <div class="volver-portada-container">
             <a href="{{ url_for('main.index') }}" class="btn-volver-portada">Volver a la portada</a>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="{{ url_for('static', filename='js/Graficos.js') }}"></script>
+        <!-- CAMBIO CRÍTICO: Referenciar el archivo JS de gráficos (que usa Highcharts) -->
+        <script src="{{ url_for('main.static', filename='js/Graficos.js') }}"></script>
     </body>
 </html>

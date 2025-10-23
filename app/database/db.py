@@ -90,3 +90,19 @@ class ContactarPor(db.Model):
     
     def __repr__(self):
         return f'<Contacto {self.nombre} - {self.identificador}>'
+    
+class Comentario(db.Model):
+    __tablename__ = 'comentario'
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    nombre = db.Column(db.String(80), nullable = False)
+
+    texto = db.Column(db.String(300), nullable = False)
+
+    fecha = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
+
+    aviso_id = db.Column(db.Integer, db.ForeignKey('aviso_adopcion.id'),nullable = False)
+
+    def __repr__(self):
+        return f'<Comentario {self.id} en Aviso {self.aviso_id}>'
