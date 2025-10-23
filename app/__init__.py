@@ -67,7 +67,7 @@ def create_app():
                             "comuna": comuna_santiago, "sector": "Barrio Universitario", "nombre": "Camila Soto", "email": "camila.soto@ejemplo.com", "celular": "+56 9 5652 5155", 
                             "tipo": "gato", "cantidad": 1, "edad": 6, "unidad_medida": "m", 
                             "fecha_entrega": datetime.now() + timedelta(days=7), "descripcion": "Gatita siamés muy cariñosa, ideal para departamento.",
-                            "contactos": [{"metodo": "whatsapp", "id": "+56956525155"}, {"metodo": "email", "id": "camila.soto@ejemplo.com"}], # Múltiples contactos de precarga
+                            "contactos": [{"metodo": "whatsapp", "id": "+56956525155"}], 
                             "fotos": ["siamese-cat.jpg"],
                             "fecha_ingreso_offset": 5 
                         },
