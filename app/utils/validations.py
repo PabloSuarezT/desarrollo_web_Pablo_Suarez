@@ -1,10 +1,67 @@
 import re
-from datetime import datetime
+from datetime import datetime, timedelta # Importé timedelta, ya que lo usas
 from flask import flash
 
 # Expresiones regulares para validaciones complejas
 # Formato de celular: +NNN.NNNNNNNN
 CELULAR_REGEX = re.compile(r'^\+\d{3}\.\d{8,15}$') # Permite 8 a 15 dígitos después del punto
+
+# ====================================================================
+# Funciones de Validación de Comentarios (NUEVAS)
+# ====================================================================
+
+def validar_nombre_usuario_comentario(nombre):
+    """
+    Valida que el nombre de usuario cumpla con los requisitos:
+    - No vacío, limpiado de espacios.
+    - Longitud entre 3 y 80 caracteres.
+    """
+    nombre_limpio = nombre.strip()
+    
+    # Requerimiento de longitud mínima y máxima
+    if not (3 <= len(nombre_limpio) <= 80):
+        return False, "El nombre debe tener entre 3 y 80 caracteres."
+    
+    return True, ""
+
+
+def validar_texto_comentario(texto):
+    """
+    Valida que el texto del comentario cumpla con los requisitos:
+    - No vacío, limpiado de espacios.
+    - Longitud entre 5 y 500 caracteres.
+    """
+    texto_limpio = texto.strip()
+    
+    # Requerimiento de longitud mínima y máxima
+    if not (5 <= len(texto_limpio) <= 500):
+        return False, "El comentario debe tener entre 5 y 500 caracteres."
+    
+    # Validación simple: asegurar que no sean solo espacios vacíos
+    if not texto_limpio:
+        return False, "El comentario no puede estar vacío."
+        
+    return True, ""
+
+
+def validar_datos_comentario(nombre, texto):
+    """
+    Función principal que valida ambos campos del comentario.
+    Retorna (True, None) si es válido, o (False, mensaje_error) si no lo es.
+    """
+    es_nombre_valido, error_nombre = validar_nombre_usuario_comentario(nombre)
+    if not es_nombre_valido:
+        return False, error_nombre
+        
+    es_texto_valido, error_texto = validar_texto_comentario(texto)
+    if not es_texto_valido:
+        return False, error_texto
+        
+    return True, None
+
+# ====================================================================
+# Funciones de Validación de Avisos (ORIGINALES - intactas)
+# ====================================================================
 
 def validar_datos_aviso(formulario, archivos_fotos):
     """
@@ -126,6 +183,3 @@ def validar_datos_aviso(formulario, archivos_fotos):
         return False, errores
     
     return True, {}
-
-# Necesario para el chequeo de fecha
-from datetime import timedelta
