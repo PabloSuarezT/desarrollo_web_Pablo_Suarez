@@ -1,4 +1,4 @@
-# desarrollo_web_Pablo_Suarez/Tarea2.
+# desarrollo_web_Pablo_Suarez.
 Este es mi proyecto de desarrollo web con HTML CSS y JavaScript. A continuación algunas consideraciones.
 
 ### Organización.
@@ -11,8 +11,8 @@ Aqui se encuentran todos los archivos html del programa. El programa base.html c
 ### Archivos JS.
 Decidí separa los archivos JS en tres: 
 - region_comuna.JS, que contiene el código pertinente para la pestaña de formulario de adopción (se actualizan las comunas segun la region y validaciones).
-- Listado.JS, que contiene todo lo necesario para poder ver el listado de adpción con la pestaña de información detallada.
-- Graficos.JS, que contiene todo lo necesario para mostrar los graficos en la seccion de estadisticas.
+- Listado.JS, que contiene todo lo necesario para poder ver el listado de adpción con la pestaña de información detallada. También maneja la lógica para agregar comentarios del lado del frontend.
+- Graficos.JS, que contiene todo lo necesario para mostrar los graficos en la seccion de estadisticas.  Se usó fetch para modelar los gráficos según los datos de la base de datos 
 - adopcion.js: este fue ana adicion que por ahora no hace nada. responde a una funcionalidad futura que no pude implementar.
 
 ### Database.
@@ -26,4 +26,4 @@ Todo el CSS pertienente a la página web se encuentra en un solo arcivo llamado 
 
 ### Dificultades.
 
-Para esta tarea 2 se realizó toda la conección entre frontend y Backend, usando MySQL y bases de datos. La mayor dificultad de esta tarea fue el backend en si, pues se me hizo complicado de entender e implementar. todos los "comandos" y formas de declarar las rutas para hacer lo que uno necesite. El uso de jinja fué tambien un desafío por lo extraño que me resultó, además de todo el proceso de carga de los avisos y la información previa. En resumen, el backend me devoró, pero salí vivo.
+La dificultad en esta entrega fué agregar La funcionalidad de comentario y arreglar errores de funcionamiento anteriores. En un principio intenté complejizar el programa, pero decidí dar marcha atras y agregar todos los cambios necesarios en los arcivos que ya tenía.
