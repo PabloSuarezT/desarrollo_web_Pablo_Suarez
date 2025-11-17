@@ -34,17 +34,10 @@ async function obtenerDatos(url, containerId) {
 }
 
 
-// ==============================================================================
-// GRÁFICO 1: LÍNEAS (Avisos por Día)
-// ==============================================================================
-
 async function dibujarGraficoAvisosPorDia() {
     const containerId = 'chart-avisos-por-dia'; // ID del DIV en Estadistica.html
     try {
         const datos = await obtenerDatos(API_URL_AVISOS_DIA, containerId);
-
-        // MODIFICACIÓN CRÍTICA: Asegurar que la fecha (primer elemento) sea un entero.
-        // Esto previene errores si el JSON devuelve el timestamp como float o string.
         const datosHighcharts = datos.map(item => {
             // item[0] es el timestamp (fecha), item[1] es la cantidad
             return [parseInt(item[0], 10), item[1]]; 
@@ -63,7 +56,7 @@ async function dibujarGraficoAvisosPorDia() {
                 text: 'Gráfico de Líneas'
             },
             xAxis: {
-                type: 'datetime', // CRÍTICO: Indica que el eje X son fechas (timestamps)
+                type: 'datetime', 
                 title: {
                     text: 'Fecha de Ingreso'
                 }
@@ -146,8 +139,7 @@ async function dibujarGraficoTotalPorTipo() {
             series: [{
                 name: 'Porcentaje',
                 colorByPoint: true,
-                data: datos,
-                // Asumiendo que el orden de datos es Gato, Perro o similar, asignamos colores fijos:
+                data: datos,   
                 colors: ['#00BFFF', '#FF4500'] // Azul para Gatos, Naranja/Rojo para Perros
             }]
         });

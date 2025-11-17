@@ -2,14 +2,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9; /* Color de fondo actualizado para el formulario */
+    background-color: #f4f4f9; 
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #333; /* Color de texto base */
+    color: #333; 
 }
 
-/* --- Estilos de la barra de navegación (nav) --- */
+
 
 nav {
     background-color: #007bff;
@@ -21,12 +21,12 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Usado flexbox para centrar y alinear */
+    display: flex; 
     justify-content: center;
 }
 
 nav ul li {
-    margin: 0 15px; /* Espacio entre los elementos del menú */
+    margin: 0 15px; 
 }
 
 nav ul li a {
@@ -41,21 +41,20 @@ nav ul li a:hover {
     background-color: #3d97f8;
 }
 
-/* --- Estilos para los títulos principales y subtítulos --- */
 
 h1 {
-    color: #2c3e50; /* Color del título principal */
+    color: #2c3e50; 
     text-align: center;
     margin-bottom: 20px;
 }
 
 h2 {
-    color: #34495e; /* Color del subtítulo */
+    color: #34495e; 
     border-bottom: 2px solid #ecf0f1;
     padding-bottom: 10px;
     margin-top: 25px;
     margin-bottom: 15px;
-    text-align: left; /* Alineado a la izquierda para el formulario */
+    text-align: left; 
 }
 
 p {
@@ -63,7 +62,7 @@ p {
     color: #666;
 }
 
-/* --- Estilos para la tabla de listado (Listado.html) --- */
+
 
 #listado-principal {
     width: 90%; 
@@ -82,8 +81,7 @@ p {
 #listado-principal th, #listado-principal td {
     padding: 12px 15px; 
     text-align: left;
-    border-bottom: 1px solid #ddd;
-    /* CENTRAR CONTENIDO EN CELDAS DE TABLA PARA ESTÉTICA */
+    border-bottom: 1px solid #ddd; 
     vertical-align: middle; 
 }
 
@@ -113,16 +111,13 @@ p {
     border-radius: 5px;
 }
 
-/* CORRECCIÓN CLAVE: Nueva definición para la clase usada en Listado.html */
 .pet-image-list {
-    width: 60px; /* Tamaño más pequeño para la fila de la tabla */
+    width: 60px; 
     height: 60px;
     object-fit: cover;
     border-radius: 4px;
-    display: block; /* Asegura que la imagen sea un bloque independiente */
+    display: block;
 }
-/* FIN DE CORRECCIÓN CLAVE */
-
 
 #detalle-aviso {
     width: 80%;
@@ -209,9 +204,6 @@ p {
     margin: 40px 0;
 }
 
-/* --- Nuevos estilos para el formulario de adopción --- */
-
-/* Estilo para los fieldset */
 fieldset {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -219,7 +211,6 @@ fieldset {
     margin-bottom: 20px;
 }
 
-/* Estilo para los inputs, select y textarea */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -249,8 +240,6 @@ textarea:focus {
     outline: none;
 }
 
-/* Estilo para el botón de "Agregar aviso de adopción" */
-
 form button[type="submit"] {
     background-color: #27ae60;
     color: white;
@@ -264,7 +253,7 @@ form button[type="submit"] {
     text-transform: uppercase;
     transition: background-color 0.3s ease, transform 0.1s ease;
     display: inline-block;
-    text-align: "center"; /* Se mantiene para que text-align: center funcione */
+    text-align: "center"; 
     text-decoration: none;
 
 
@@ -278,14 +267,12 @@ form button[type="submit"]:hover {
     
 }
 
-/* Nuevo estilo para centrar solo el botón de envío */
 .submit-button-container {
     text-align: center;
-    margin-top: 20px; /* Opcional: añade espacio arriba */
+    margin-top: 20px; 
     margin-bottom: 20px;
 }
 
-/* Estilo para el botón de "Volver a la portada" (CORREGIDO) */
 .btn-volver-portada {
     background-color: #3498db;
     color: white;
@@ -299,7 +286,7 @@ form button[type="submit"]:hover {
     text-transform: uppercase;
     transition: background-color 0.3s ease, transform 0.1s ease;
     display: inline-block;
-    text-decoration: none; /* Esto remueve el subrayado del enlace */
+    text-decoration: none; 
 }
 
 .btn-volver-portada:hover {
@@ -310,7 +297,7 @@ form button[type="submit"]:hover {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f3f4f6; /* Gris claro de fondo */
+    background-color: #f3f4f6;
 }
 .container-main {
     max-width: 900px;
@@ -321,8 +308,9 @@ body {
     border-radius: 1rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
-/* Estilo para el campo de contacto (listbox/select múltiple) */
+
 #contacto-por-select option:checked {
-    background-color: #3b82f6; /* Color azul Tailwind-500 */
+    background-color: #3b82f6; 
     color: white;
 }
+

@@ -293,6 +293,10 @@ def create_app():
     def estadistica():
         return render_template('Estadistica.html')
 
+    @main.route('/evaluation.html')
+    def evaluation():
+        return render_template('evaluation.html')
+
     @main.route('/Adopcion.html', methods=['GET', 'POST'])
     def adopcion():
         regiones = Region.query.order_by(Region.nombre).all()

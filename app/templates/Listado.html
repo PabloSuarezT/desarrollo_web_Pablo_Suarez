@@ -3,7 +3,6 @@
     <head>
         <title>Listado de Adopción</title>
         <meta charset="UTF-8">
-        <!-- Asegúrate de usar 'main.static' para blueprints -->
         <link rel="stylesheet" href="{{ url_for('main.static', filename='css/style.css') }}">
     </head>
     <body>
@@ -13,6 +12,7 @@
                 <li><a href="{{ url_for('main.listado') }}">Listado de Adopción</a></li>
                 <li><a href="{{ url_for('main.adopcion') }}">Formulario de Adopción</a></li>
                 <li><a href="{{ url_for('main.estadistica') }}">Estadística</a></li>
+                <li><a href="../Tarea4/src/main/resources/static/evaluation.html">Evaluar listado</a></li>
             </ul> 
         </nav>
         <h1>Listado de adopciones</h1>
@@ -30,9 +30,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Bucle Jinja para todos los avisos -->
                     {% for aviso in avisos %}
-                    <tr data-id="{{ aviso.id }}" class="clickable-row"> <!-- Añadida clase clickable-row para JS -->
+                    <tr data-id="{{ aviso.id }}" class="clickable-row"> 
                         <td>{{ aviso.fecha_ingreso.strftime('%Y-%m-%d %H:%M') }}</td>
                         <td>{{ aviso.comuna_nombre }}</td>
                         <td>{{ aviso.sector if aviso.sector else 'N/A' }}</td>
@@ -43,13 +42,11 @@
                             {% if aviso.unidad_medida == 'a' %}años{% else %}meses{% endif %}
                         </td>
                         <td>
-                            <!-- MOSTRAR FOTO en Listado también, usando la URL precalculada -->
                             <img class="pet-image-list" 
                                  src="{{ aviso.foto_principal }}" 
                                  alt="Foto de {{ aviso.tipo | capitalize }}">
                         </td>
                         <td>
-                            <!-- Botón o indicador para ver detalle, que usará Listado.js -->
                             <button class="detalle-btn" data-id="{{ aviso.id }}">Ver Detalle</button>
                         </td>
                     </tr>
@@ -58,16 +55,13 @@
                         <td colspan="6">No hay avisos en el sistema.</td>
                     </tr>
                     {% endfor %}
-                    <!-- Fin del bucle Jinja -->
                 </tbody>
             </table>
         </div>
         
         <div id="detalle-aviso" style="display: none;">
-            <!-- Aquí Listado.js inyectará el detalle del aviso -->
         </div>
 
-        <!-- Asegúrate de usar 'main.static' para blueprints -->
         <script src="{{ url_for('main.static', filename='js/Listado.js') }}"></script>
     </body>
 </html>
