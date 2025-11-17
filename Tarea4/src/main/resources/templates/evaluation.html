@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Avisos - Tarea 4</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"> 
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a th:href="@{/nota}">Portada</a></li>
+            <li><a th:href="@{/nota}">Listado de Adopción</a></li>
+            <li><a th:href="@{/nota}">Formulario de Adopción</a></li>
+            <li><a th:href="@{/nota}">Estadística</a></li>
+            <li><a th:href="@{/nota}">Evaluar Avisos</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-main">
+        
+        <h1>Listado de Avisos para Evaluación</h1>
+        
+        <table id="listado-principal">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha Publicación</th>
+                    <th>Sector</th>
+                    <th>Comuna</th>
+                    <th>Cantidad Tipo Edad</th>
+                    <th>Nota Promedio</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aviso : ${avisos}" th:data-aviso-id="${aviso.id}">
+                    <td th:text="${aviso.id}">1</td>
+                    <td th:text="${aviso.fechaPublicacion}">2025-06-02</td>
+                    <td th:text="${aviso.sector}">Beauchef 859, terraza</td>
+                    
+                    <td th:text="${aviso.comunaNombre}">Santiago</td> 
+                    
+                    <td th:text="${aviso.descripcionMascota}">1 gato 2 meses</td>
+                    
+                    <td class="promedio-cell" th:id="'promedio-' + ${aviso.id}" th:text="${aviso.notaPromedio}">-</td>
+                    
+                    <td>
+                        <button class="btn-evaluar" th:data-aviso-id="${aviso.id}">evaluar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="submit-button-container">
+            <a th:href="@{/nota}" class="btn-volver-portada">Volver a la Portada</a>
+        </div>
+
+    </div>
+
+    <div id="message-container" style="text-align: center; margin: 20px auto; max-width: 900px;">
+        </div>
+    
+    <div id="evaluation-modal" class="overlay" style="display:none;">
+        <div class="form-section" style="max-width: 400px; padding: 30px; border-radius: 10px;">
+            <h2>Evaluar Aviso <span id="modal-aviso-id"></span></h2>
+            <form id="evaluation-form">
+                <label for="nota-input" style="display: block; margin-bottom: 10px;">Ingrese una nota (1-7):</label>
+                <input type="number" id="nota-input" min="1" max="7" required style="text-align: center;">
+                
+                <div id="modal-error-message" style="color: red; margin-top: 10px; display: none;"></div>
+                
+                <div class="submit-button-container" style="display: flex; justify-content: space-between; margin-top: 20px;">
+                    <button type="button" id="cancel-evaluation-btn" class="btn-volver-portada" style="background-color: #e74c3c; border-radius: 5px; padding: 10px 15px;">Cancelar</button>
+                    <button type="submit" id="submit-evaluation-btn" style="background-color: #2ecc71; border-radius: 5px; padding: 10px 15px;">Guardar Nota</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/evaluation.js}"></script> 
+</body>
+</html>
