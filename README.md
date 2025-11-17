@@ -1,29 +1,24 @@
-# desarrollo_web_Pablo_Suarez.
-Este es mi proyecto de desarrollo web con HTML CSS y JavaScript. A continuación algunas consideraciones.
+# desarrollo_web_Pablo_Suarez/Tarea-4.
+Este es mi proyecto de desarrollo web con HTML CSS y JavaScript, ahora hecho con java y spring boot para el backend.
 
 ### Organización.
-Para esta tarea se organizó todo de tal forma que el framework de trabajo flask pueda interpretar el proyecto. Se tiene una carpeta central llamada app con todas las carpetas que, a su vez, contienen todos los archivos.
+Esta tarea se encuentra en una carpeta aparte de la carpeta app, donde se encuentra todo el trabajo previo. Esto es así debido a que se usa un lenguaje y framework diferente para el backend, por lo que no era posible compatibilizar los proyectos a partir de esta tarea. Por ende, todo lo anterior funciona sin lo nuevo y, así mismo, lo nuevo funciona sin lo antíguo.
 
 ### Templates.
-Aqui se encuentran todos los archivos html del programa. El programa base.html corresponde a una futura refactorizacion de la página para mejorar el funcionamiento. 
+Para los templates se uso Thymelife para hacer los ciclos each de la tabla de avisos. Dado que toda la tarea era desarrollar una sola pantalla con objetos que se iban a usar solo una vez, no fue necesario el uso de fragmentos para los elementos de la página.
 
+### MVC.
+Para poder cumplir con lo pedido en la tarea, se implementó el programa según la arquitectura de Modelo Vista Controlador (MVC). Implementé el modelo para nota, aviso de adpoción y comuna, puesto que de estos era de donde provenía la informacion principal a proporcionar; se hizo un archivoRepository para autorizar a acceder a la información que cada uno necesitara; un archivo como servicio para así poder intercambiar la informacion que recogieran los .Repository y mandarla a las url correspondiente. Se implementó las clases de app y api usuales para el manejo de rutas, html y llamadas asincrónicas por parte del JS. Por su puesto existe el HTML y JS encargados de la vista del programa. Se tomó la desición de que todos los links del programa retornen a la misma pantalla de notas por simplicidad, ya que no se pide nada más; con la base de datos de las entregas pasadas ya se cumple el cometido
 
 ### Archivos JS.
-Decidí separa los archivos JS en tres: 
-- region_comuna.JS, que contiene el código pertinente para la pestaña de formulario de adopción (se actualizan las comunas segun la region y validaciones).
-- Listado.JS, que contiene todo lo necesario para poder ver el listado de adpción con la pestaña de información detallada. También maneja la lógica para agregar comentarios del lado del frontend.
-- Graficos.JS, que contiene todo lo necesario para mostrar los graficos en la seccion de estadisticas.  Se usó fetch para modelar los gráficos según los datos de la base de datos 
-- adopcion.js: este fue ana adicion que por ahora no hace nada. responde a una funcionalidad futura que no pude implementar.
+Par esta entrega solo fué necesario un archivo js (evaluation.js) ya que solo habia que validar la nota que el usuario ingrese del lado del frontend, además de la logica de despliege de intefaz o el manejo de errores generales. Se usaron funciones asincrónicas como fetch para poder comunicarse con el backend y verificar que los datos se hayan guardado de manera correcta.
 
 ### Database.
-Aqui se encuentra todo lo relacionado a la comunicación con la base de datos y la página, así como la correcta configuración del server. host y la base misma. Tambien están los archivos sql necesarios para crear las tablas y rellenar las comunas y regiones, parte clave del formulario de adpoción.
-
-### utils.
-Aquí se encuentra el archivo que hace las validaciones del lado del servisor para evitar que  malos datos (inyecciones código o ataques) ingresen.
+En los archivos de la base de datos hay dos agregados. El primer archivo es el responsable de generar la nueva tabla para las notas, el segundo carga todos los datos necesarios con ordenes SQL, en vez de hacerlo con el __init__ de la app, así se distribuye mejor la responsabilidad y simplifica el código, además de hacerlo todo mucho más rápido.
 
 ### Archivo CSS.
-Todo el CSS pertienente a la página web se encuentra en un solo arcivo llamado style.
+Todo el CSS pertienente a la página web se encuentra en un solo arcivo llamado style. En este caso sigue siendo el mismo para las entregas pasadas. Hay que mantener la coherencia visual.
 
 ### Dificultades.
 
-La dificultad en esta entrega fué agregar La funcionalidad de comentario y arreglar errores de funcionamiento anteriores. En un principio intenté complejizar el programa, pero decidí dar marcha atras y agregar todos los cambios necesarios en los arcivos que ya tenía.
+Para hacer esta tarea tuve 2 días aproximadamente, esto debido a la fuerte carga académica. Dado que esta tarea era un java y spring boot (un lenguaje y un framework que no habia visto en mi vida), se me hizo mucho más difícil entender el orden lógico de los programas para poder hacer lo que quería. Muchas veces tuve que ver el video del aux 10 una y otra vez; copiando y pegando del archivo del aux en ocaciones; vindo linea por linea para aprender que cosa hace qué. Luego de terminar el backend, pasé al front, y ahí la cosa mejoró un poco, dado a que, por lo menos, algo puedo hacer en JS.
